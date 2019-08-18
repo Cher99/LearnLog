@@ -1,0 +1,31 @@
+Python IDE
+自带：IDEL  codings < 300
+其他：文本类：Sublime Text(编程体验比较好）
+      集成类：Wing（可多人协作） / VS（Win上用的多一些） / pycharm
+      专门针对科学计算数据分析：Anaconda
+
+
+网络爬虫及信息提取：
+	定向网络数据爬取和网页解析：the website is API
+
+
+
+
+==========================Notes===========================
+
+主要方法：
+	request()	构造一个请求，支撑以下方法的基础方法
+	get()	获取HTML网页的主要方法，对应于HTTP中的GET
+		r=requests.get(url,params=None,**kwargs)
+		#url 待获取页面的url链接，params 字典或字节流格式，
+		# Response对象：type(r) => Response对象
+			常用属性：
+				r.status_code : 200 == normal / 404 == badGateWay etc.
+				r.text:字符串形式返回url页面内容
+	head()	获取网页头信息的方法，对应于HTTP中的HEAD
+	post()	向HTTP网页提交POST请求的方法，对应于HTTP中的POST
+	put()	..............PUT.........................PUT
+	patch()	向HTML网页提交局部修改申请.................PATCH
+	delete()向HTML页面提交删除请求
+
+==============http://www.python-requests.org===============

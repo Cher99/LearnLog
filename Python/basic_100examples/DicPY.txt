@@ -1,0 +1,9 @@
+字典：
+	键对值，靠键索引/访问/修改/删除值
+键特性：
+	1.同一字典键不重名
+	2.键非可变变量
+内置方法：
+	cmp (dic1,dic2) / len(dic) / str(dic)
+	dict.clear() / dict.copy() / dict.formkeys(seq[,val]) #创建新字典，以seq中元素为键，val：初始值 / dict.get(key,default = None) / dict.has_key(key) / dict.keys() / dict.items() / dict.setdefault(key,default=None) / dict.values() / dict.update(dict2) / pop(key[,value]
+

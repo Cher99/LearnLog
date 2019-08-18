@@ -1,0 +1,30 @@
+异常是python对象，代表一个事件，该事件将在程序执行过程中发生，影响了程序的正常执行。
+一般情况下，PY无法正常处理程序时会生成一个异常对象，若不想此时终止程序，则需用捕获处理。
+	python标准异常：
+		BaseException
+		SystemExit	解释器请求退出
+		KeyboardInterrupt	^C用户请求中断
+		Exception	常规错误的基类
+		StopIteration	迭代器中没有更多的值
+		GeneratorExit
+		StandardError
+		ArithmeticError	数值计算错误的基类
+		OverflowError	数值运算超出最大限制
+		AssertionError	断言失败
+		AttributeError	对象无此属性
+		EOFError	无内建输入，到达EOF标记
+		IndexError	序列无此索引
+		IndentationError	缩进
+异常处理:
+	try:
+	  ...
+	>>>except <error_name>: # == if error_name happens
+	>>>excpet <error_name>,<data>: # == if error_name happens,get the data's value
+	  ...
+	else: # if it not happen
+	  ...
+
+try的原理：
+	开始一个try语句时，py在当前程序的上下文坐标记，当异常出现，程序将返回这里进入except语句。
+	没有匹配的的except时将返回到程序顶层，打印错误信息并退出。
+

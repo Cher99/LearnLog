@@ -31,14 +31,14 @@ def findMaxN1N2(filepath = '/home/cheney/LearnLog/Python/fullConnection_DL/PCM_d
 
 		f,t,Sxx = scipy.signal.stft(leftData,48e3, nperseg=4096, noverlap=4000 ,nfft=4096)
 		s1 = abs(Sxx)
-		s2 = s1[20:30,:]
+		s2 = s1[1761:1817,:]
 		s_left_fu = s2[1:20,:] # 9*X
-		if len(s_left_fu) != 9:
+		if len(s_left_fu) != 19:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
-			print "s_left_fu length is not 9 ,it's :%d",len(s_left_fu)
+			print "s_left_fu length is not 19 ,it's :%d",len(s_left_fu)
 			return -1
 		else:
-			for m in range(9):
+			for m in range(19):
 				n1 = len(s_left_fu[m])
 				if n1 > N1:
 					N1 = n1
@@ -47,21 +47,26 @@ def findMaxN1N2(filepath = '/home/cheney/LearnLog/Python/fullConnection_DL/PCM_d
 
 
 		s_left_zheng = s2[30:,:]
-		if len(s_left_zheng) != 0:
+		if len(s_left_zheng) != 26:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
 			print "s_left_zheng length is not 0 ,it's :%d",len(s_left_zheng)
 			return -1
+		else:
+			for n in range(26):
+				n11 = len(s_left_zheng[n])
+				if n11 > N1:
+					pass
 
 		f,t,Sxx = scipy.signal.stft(rightData,48e3, nperseg=4096, noverlap=4000 ,nfft=4096)
 		s1 = abs(Sxx)
 		s2 = s1[20:30,:]
 		s_right_fu = s2[1:20,:]
-		if len(s_right_fu) != 9:
+		if len(s_right_fu) != 19:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
-			print "s_right_fu length is not 9 ,it's :%d",len(s_right_fu)
+			print "s_right_fu length is not 26 ,it's :%d",len(s_right_fu)
 			return -1
 		else:
-			for m in range(9):
+			for m in range(19):
 				n2 = len(s_right_fu[m])
 				if n2 > N2:
 					N2 = n2
@@ -70,10 +75,17 @@ def findMaxN1N2(filepath = '/home/cheney/LearnLog/Python/fullConnection_DL/PCM_d
 
 
 		s_right_zheng = s2[30:,:]
-		if len(s_right_zheng) != 0:
+		if len(s_right_zheng) != 26:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
 			print "s_right_zheng length is not 0 ,it's :%d",len(s_right_zheng)
 			return -1
+		else:
+			for n in range(26):
+				n22 = len(s_right_zheng[n])
+				if n22 > N2:
+					N2 = n22
+					pass
+
 		file.close()
 		start_file_index += 1
 
@@ -105,15 +117,15 @@ def Normalize_data(filepath = '/home/cheney/LearnLog/Python/fullConnection_DL/PC
 
 		f,t,Sxx = scipy.signal.stft(leftData,48e3, nperseg=4096, noverlap=4000 ,nfft=4096)
 		s1 = abs(Sxx)
-		s2 = s1[20:30,:]
+		s2 = s1[1761:1817,:]
 		s_left_fu = s2[1:20,:] # 9*X
-		if len(s_left_fu) != 9:
+		if len(s_left_fu) != 19:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
 			print "s_left_fu length is not 9 ,it's :%d",len(s_left_fu)
 			return -1
 		else:
 			HELPM1 = []
-			for m in range(9):
+			for m in range(19):
 				n1 = len(s_left_fu[m])
 				print 'm =',m
 				print 'n1 = ',n1
@@ -132,22 +144,22 @@ def Normalize_data(filepath = '/home/cheney/LearnLog/Python/fullConnection_DL/PC
 
 
 		s_left_zheng = s2[30:,:]
-		if len(s_left_zheng) != 0:
+		if len(s_left_zheng) != 26:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
 			print "s_left_zheng length is not 0 ,it's :%d",len(s_left_zheng)
 			return -1
 
 		f,t,Sxx = scipy.signal.stft(rightData,48e3, nperseg=4096, noverlap=4000 ,nfft=4096)
 		s1 = abs(Sxx)
-		s2 = s1[20:30,:]
+		s2 = s1[1761:1817,:]
 		s_right_fu = s2[1:20,:]
-		if len(s_right_fu) != 9:
+		if len(s_right_fu) != 19:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
 			print "s_right_fu length is not 9 ,it's :%d",len(s_left_fu)
 			return -1
 		else:
 			HELPM2 = []
-			for m in range(9):
+			for m in range(19):
 				n2 = len(s_right_fu[m])
 				print 'm =',m
 				print 'n1 = ',n2
@@ -167,7 +179,7 @@ def Normalize_data(filepath = '/home/cheney/LearnLog/Python/fullConnection_DL/PC
 
 
 		s_right_zheng = s2[30:,:]
-		if len(s_right_zheng) != 0:
+		if len(s_right_zheng) != 26:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
 			print "s_right_zheng length is not 0 ,it's :%d",len(s_right_zheng)
 			return -1
@@ -225,15 +237,15 @@ def Deal_testdata(filename, N1, N2):
 
 	f,t,Sxx = scipy.signal.stft(leftData,48e3, nperseg=4096, noverlap=4000 ,nfft=4096)
 	s1 = abs(Sxx)
-	s2 = s1[20:30,:]
+	s2 = s1[1761:1817,:]
 	s_left_fu = s2[1:20,:] # 9*X
-	if len(s_left_fu) != 9:
+	if len(s_left_fu) != 19:
 		print 'in file : '+'/'+char+str(start_file_index)+'\n'
 		print "s_left_fu length is not 9 ,it's :%d",len(s_left_fu)
 		return -1
 	else:
 		HELPM1 = []
-		for m in range(9):
+		for m in range(19):
 			n1 = len(s_left_fu[m])
 			if n1 <= N1:
 				helpM1 = s_left_fu[m].tolist()
@@ -246,22 +258,22 @@ def Deal_testdata(filename, N1, N2):
 				HELPM1.append(helpM1)
 
 	s_left_zheng = s2[30:,:]
-	if len(s_left_zheng) != 0:
+	if len(s_left_zheng) != 26:
 		print 'in file : '+'/'+char+str(start_file_index)+'\n'
 		print "s_left_zheng length is not 0 ,it's :%d",len(s_left_zheng)
 		return -1
 
 	f,t,Sxx = scipy.signal.stft(rightData,48e3, nperseg=4096, noverlap=4000 ,nfft=4096)
 	s1 = abs(Sxx)
-	s2 = s1[20:30,:]
+	s2 = s1[1761:1817,:]
 	s_right_fu = s2[1:20,:]
-	if len(s_right_fu) != 9:
+	if len(s_right_fu) != 19:
 		print 'in file : '+'/'+char+str(start_file_index)+'\n'
 		print "s_right_fu length is not 9 ,it's :%d",len(s_left_fu)
 		return -1
 	else:
 		HELPM2 = []
-		for m in range(9):
+		for m in range(19):
 			n2 = len(s_right_fu[m])
 			if n2  <= N2:
 				helpM2 = s_right_fu[m].tolist()
@@ -278,7 +290,7 @@ def Deal_testdata(filename, N1, N2):
 
 
 		s_right_zheng = s2[30:,:]
-		if len(s_right_zheng) != 0:
+		if len(s_right_zheng) != 26:
 			print 'in file : '+'/'+char+str(start_file_index)+'\n'
 			print "s_right_zheng length is not 0 ,it's :%d",len(s_right_zheng)
 			return -1

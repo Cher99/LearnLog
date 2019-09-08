@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/cheney/LearnLog/ROS/hello_rospy/devel/setup.sh
